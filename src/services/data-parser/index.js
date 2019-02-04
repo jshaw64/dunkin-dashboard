@@ -1,7 +1,10 @@
 import transactions from '../../data/transactions.json';
 
 function parseTransactions() {
-  console.log(transactions);
+  return transactions.map(transaction => ({
+    date: transaction.Date,
+    amount: transaction.Amount
+  }));
 }
 
 export { parseTransactions };
