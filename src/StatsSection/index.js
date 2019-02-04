@@ -26,35 +26,37 @@ const styles = {
   }
 };
 
-function SimpleCard(props) {
-  const { classes } = props;
-  const bull = <span className={classes.bullet}>•</span>;
+class SimpleCard extends React.Component {
+  render() {
+    const { classes } = this.props;
+    const bull = <span className={classes.bullet}>•</span>;
 
-  const transactions = parseTransactions();
+    const transactions = parseTransactions();
 
-  return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
-        >
-          In the last 6 months
-        </Typography>
-        <Typography variant="h5" component="h2">
-          I spent...
-        </Typography>
-        <Typography component="p">{calculateTotal()}</Typography>
-        {transactions.map(transaction => (
-          <Fragment>
-            <Typography component="p">{transaction.date}</Typography>
-            <Typography component="p">{transaction.amount}</Typography>
-          </Fragment>
-        ))}
-      </CardContent>
-    </Card>
-  );
+    return (
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            In the last 6 months
+          </Typography>
+          <Typography variant="h5" component="h2">
+            I spent...
+          </Typography>
+          <Typography component="p">{calculateTotal()}</Typography>
+          {transactions.map(transaction => (
+            <Fragment>
+              <Typography component="p">{transaction.date}</Typography>
+              <Typography component="p">{transaction.amount}</Typography>
+            </Fragment>
+          ))}
+        </CardContent>
+      </Card>
+    );
+  }
 }
 
 SimpleCard.propTypes = {
