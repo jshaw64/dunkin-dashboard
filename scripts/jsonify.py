@@ -17,6 +17,8 @@ for row in reader:
 i = 0
 csvfile.seek(0)
 
+jsonfile.write('[\n')
+
 for row in reader:
     i = i + 1
     json.dump(row, jsonfile)
@@ -24,3 +26,5 @@ for row in reader:
         jsonfile.write('\n')
     else:
         jsonfile.write(',\n')
+
+jsonfile.write(']')
