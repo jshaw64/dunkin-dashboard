@@ -21,8 +21,8 @@ class App extends Component {
           >
             Learn React
           </a>
+          <StatsSection />
         </header>
-        <StatsSection />
       </div>
     );
   }
