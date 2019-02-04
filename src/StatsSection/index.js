@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import { parseTransactions } from '../services/data-parser';
+import { parseTransactions, calculateTotal } from '../services/data-parser';
 
 const styles = {
   card: {
@@ -45,6 +45,7 @@ function SimpleCard(props) {
         <Typography variant="h5" component="h2">
           I spent...
         </Typography>
+        <Typography component="p">{calculateTotal()}</Typography>
         {transactions.map(transaction => (
           <Fragment>
             <Typography component="p">{transaction.date}</Typography>
