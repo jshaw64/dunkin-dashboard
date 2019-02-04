@@ -1,8 +1,11 @@
 import csv
 import json
+import os
+import sys
 
-csvfile = open('../src/data/transactions.csv', 'r')
-jsonfile = open('../src/data/transactions.json', 'w')
+data_path = os.path.dirname(sys.path[0] + '/../src/data/');
+csvfile = open(data_path + '/transactions.csv', 'r')
+jsonfile = open(data_path + '/transactions.json', 'w')
 
 fieldnames = ("Date","Description","Original Description","Amount","Transaction Type","Category","Account Name","Labels","Notes")
 reader = csv.DictReader( csvfile, fieldnames)
