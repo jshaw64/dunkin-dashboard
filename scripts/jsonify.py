@@ -15,16 +15,18 @@ for row in reader:
   totalrows += 1
 
 i = 0
+first_written = 0
 csvfile.seek(0)
 
 jsonfile.write('[\n')
 
 for row in reader:
     i = i + 1
-    json.dump(row, jsonfile)
-    if i == totalrows:
-        jsonfile.write('\n')
-    else:
-        jsonfile.write(',\n')
+    if row["Description"].find("Dunkin") != -1:
+        if first_written != 0:
+            jsonfile.write(',\n')
+        else:
+            first_written = 1
+        json.dump(row, jsonfile)
 
-jsonfile.write(']')
+jsonfile.write('\n]')
