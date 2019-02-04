@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './dd-logo.svg';
 import './App.css';
 
+import StatsSection from './StatsSection';
+
 class App extends Component {
   render() {
     return (
@@ -20,6 +22,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <StatsSection />
       </div>
     );
   }
