@@ -97,9 +97,14 @@ class SimpleCard extends React.Component {
   render() {
     const { classes } = this.props;
     const bull = <span className={classes.bullet}>•</span>;
-    const transactions = getTransactionsLastNDays(30);
 
-    return this.renderStatCard(transactions, classes, bull);
+    return (
+      <Fragment>
+        {this.renderStatCard(getTransactionsLastNDays(30), classes, bull)}
+        {this.renderStatCard(getTransactionsLastNDays(90), classes, bull)}
+        {this.renderStatCard(getTransactionsLastNDays(), classes, bull)}
+      </Fragment>
+    );
   }
 }
 
