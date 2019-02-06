@@ -16,4 +16,17 @@ function parseTransactions() {
   }));
 }
 
-export { parseTransactions, calculateTotal };
+function getTransactionsLastNDays(days) {
+  return parseTransactions().filter(transaction => {
+    const dateDiff = Math.floor(
+      (new Date() - new Date(transaction.date)) / (1000 * 60 * 60 * 24)
+    );
+    return dateDiff <= days;
+  });
+}
+
+export {
+  parseTransactions,
+  calculateTotal,
+  getTransactionsLastNDays
+};
