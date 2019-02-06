@@ -52,7 +52,7 @@ class SimpleCard extends React.Component {
     this.setState(state => ({ expanded: !state.expanded }));
   };
 
-  renderCard30Days(transactions, classes, bull) {
+  renderStatCard(transactions, classes, bull) {
     return (
       <Card className={classes.card}>
         <CardContent>
@@ -93,12 +93,13 @@ class SimpleCard extends React.Component {
       </Card>
     );
   }
+
   render() {
     const { classes } = this.props;
     const bull = <span className={classes.bullet}>•</span>;
     const transactions = getTransactionsLastNDays(30);
 
-    return this.renderCard30Days(transactions, classes, bull);
+    return this.renderStatCard(transactions, classes, bull);
   }
 }
 
