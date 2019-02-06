@@ -47,12 +47,7 @@ class SimpleCard extends React.Component {
     this.setState(state => ({ expanded: !state.expanded }));
   };
 
-  render() {
-    const { classes } = this.props;
-    const bull = <span className={classes.bullet}>•</span>;
-
-    const transactions = parseTransactions();
-
+  renderCard30Days(transactions, classes, bull) {
     return (
       <Card className={classes.card}>
         <CardContent>
@@ -92,6 +87,13 @@ class SimpleCard extends React.Component {
         </CardContent>
       </Card>
     );
+  }
+  render() {
+    const { classes } = this.props;
+    const bull = <span className={classes.bullet}>•</span>;
+    const transactions = parseTransactions();
+
+    return this.renderCard30Days(transactions, classes, bull);
   }
 }
 
