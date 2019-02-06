@@ -17,6 +17,10 @@ function parseTransactions() {
 }
 
 function getTransactionsLastNDays(days) {
+  if (!days) {
+    return parseTransactions();
+  }
+
   return parseTransactions().filter(transaction => {
     const dateDiff = Math.floor(
       (new Date() - new Date(transaction.date)) / (1000 * 60 * 60 * 24)
