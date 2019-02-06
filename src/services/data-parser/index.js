@@ -25,8 +25,16 @@ function getTransactionsLastNDays(days) {
   });
 }
 
+function getTotalLastNDays(days) {
+  return getTransactionsLastNDays(days).reduce(
+    (acc, transaction) => (acc += parseFloat(transaction.amount)),
+    0
+  );
+}
+
 export {
   parseTransactions,
   calculateTotal,
-  getTransactionsLastNDays
+  getTransactionsLastNDays,
+  getTotalLastNDays
 };
