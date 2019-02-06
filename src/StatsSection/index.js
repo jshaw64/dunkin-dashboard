@@ -11,7 +11,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import { parseTransactions, calculateTotal } from '../services/data-parser';
+import {
+  parseTransactions,
+  calculateTotal,
+  getTransactionsLastNDays
+} from '../services/data-parser';
 
 const styles = theme => ({
   card: {
@@ -91,7 +95,7 @@ class SimpleCard extends React.Component {
   render() {
     const { classes } = this.props;
     const bull = <span className={classes.bullet}>•</span>;
-    const transactions = parseTransactions();
+    const transactions = getTransactionsLastNDays(30);
 
     return this.renderCard30Days(transactions, classes, bull);
   }
