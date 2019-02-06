@@ -46,13 +46,19 @@ const styles = theme => ({
 });
 
 class SimpleCard extends React.Component {
-  state = { expanded: false };
-
-  handleExpandClick = () => {
-    this.setState(state => ({ expanded: !state.expanded }));
+  state = {
+    'expanded-30': false,
+    'expanded-90': false,
+    'expanded-lifetime': false
   };
 
-  renderStatCard(transactions, classes, bull) {
+  handleExpandClick = section => {
+    this.setState(state => ({
+      [section]: !state[section]
+    }));
+  };
+
+  renderStatCard(transactions, classes, bull, section) {
     return (
       <Card className={classes.card}>
         <CardContent>
@@ -70,16 +76,16 @@ class SimpleCard extends React.Component {
           <CardActions className={classes.actions} disableActionSpacing>
             <IconButton
               className={classnames(classes.expand, {
-                [classes.expandOpen]: this.state.expanded
+                [classes.expandOpen]: this.state[section]
               })}
-              onClick={this.handleExpandClick}
+              onClick={() => this.handleExpandClick(section)}
               aria-expanded={this.state.expanded}
               aria-label="Show more"
             >
               <ExpandMoreIcon />
             </IconButton>
           </CardActions>
-          <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+          <Collapse in={this.state[section]} timeout="auto" unmountOnExit>
             <CardContent>
               {transactions.map(transaction => (
                 <Fragment>
@@ -100,9 +106,24 @@ class SimpleCard extends React.Component {
 
     return (
       <Fragment>
-        {this.renderStatCard(getTransactionsLastNDays(30), classes, bull)}
-        {this.renderStatCard(getTransactionsLastNDays(90), classes, bull)}
-        {this.renderStatCard(getTransactionsLastNDays(), classes, bull)}
+        {this.renderStatCard(
+          getTransactionsLastNDays(30),
+          classes,
+          bull,
+          'expanded-30'
+        )}
+        {this.renderStatCard(
+          getTransactionsLastNDays(90),
+          classes,
+          bull,
+          'expanded-90'
+        )}
+        {this.renderStatCard(
+          getTransactionsLastNDays(),
+          classes,
+          bull,
+          'expanded-lifetime'
+        )}
       </Fragment>
     );
   }
