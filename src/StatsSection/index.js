@@ -14,7 +14,8 @@ import Typography from '@material-ui/core/Typography';
 import {
   parseTransactions,
   calculateTotal,
-  getTransactionsLastNDays
+  getTransactionsLastNDays,
+  getTotalLastNDays
 } from '../services/data-parser';
 
 const styles = theme => ({
@@ -65,7 +66,7 @@ class SimpleCard extends React.Component {
           <Typography variant="h5" component="h2">
             I spent...
           </Typography>
-          <Typography component="p">{calculateTotal()}</Typography>
+          <Typography component="p">{getTotalLastNDays(30)}</Typography>
           <CardActions className={classes.actions} disableActionSpacing>
             <IconButton
               className={classnames(classes.expand, {
