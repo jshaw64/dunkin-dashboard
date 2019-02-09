@@ -74,7 +74,7 @@ class SimpleCard extends React.Component {
             color="textSecondary"
             gutterBottom
           >
-            In the last 6 months
+            Transactions
           </Typography>
           <Typography variant="h5" component="h2">
             {sectionTitle}
