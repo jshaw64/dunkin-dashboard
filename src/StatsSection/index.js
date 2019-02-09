@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 
 import {
   parseTransactions,
@@ -98,12 +99,15 @@ class SimpleCard extends React.Component {
             <CardContent>
               <List>
                 {transactions.map(transaction => (
-                  <ListItem>
-                    <ListItemText
-                      primary={`$${transaction.amount}`}
-                      secondary={`$${transaction.date}`}
-                    />
-                  </ListItem>
+                  <Fragment>
+                    <ListItem>
+                      <ListItemText
+                        primary={`$${transaction.amount}`}
+                        secondary={`$${transaction.date}`}
+                      />
+                    </ListItem>
+                    <Divider />
+                  </Fragment>
                 ))}
               </List>
             </CardContent>
