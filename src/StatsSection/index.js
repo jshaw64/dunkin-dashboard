@@ -122,7 +122,8 @@ class SimpleCard extends React.Component {
             getTransactionsLastNDays(30),
             classes,
             bull,
-            'expanded-30'
+            'expanded-30',
+            '30 Days'
           )}
         </div>
         <div className="col">
@@ -130,7 +131,8 @@ class SimpleCard extends React.Component {
             getTransactionsLastNDays(90),
             classes,
             bull,
-            'expanded-90'
+            'expanded-90',
+            '90 Days'
           )}
         </div>
         <div className="col">
@@ -138,7 +140,8 @@ class SimpleCard extends React.Component {
             getTransactionsLastNDays(),
             classes,
             bull,
-            'expanded-lifetime'
+            'expanded-lifetime',
+            'Lifetime'
           )}
         </div>
       </section>
