@@ -18,6 +18,8 @@ import {
   getTotalLastNDays
 } from '../services/data-parser';
 
+import './styles.css';
+
 const styles = theme => ({
   card: {
     minWidth: 275
@@ -105,7 +107,7 @@ class SimpleCard extends React.Component {
     const bull = <span className={classes.bullet}>•</span>;
 
     return (
-      <Fragment>
+      <section className="flex-grid">
         {this.renderStatCard(
           getTransactionsLastNDays(30),
           classes,
@@ -124,7 +126,7 @@ class SimpleCard extends React.Component {
           bull,
           'expanded-lifetime'
         )}
-      </Fragment>
+      </section>
     );
   }
 }
