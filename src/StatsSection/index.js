@@ -15,6 +15,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { grey, amber, red } from '@material-ui/core/colors';
+
 import {
   parseTransactions,
   calculateTotal,
@@ -23,6 +26,15 @@ import {
 } from '../services/data-parser';
 
 import './styles.css';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: grey,
+    accent: amber,
+    error: red,
+    type: 'dark'
+  }
+});
 
 const styles = theme => ({
   card: {
