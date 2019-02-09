@@ -108,24 +108,30 @@ class SimpleCard extends React.Component {
 
     return (
       <section className="flex-grid">
-        {this.renderStatCard(
-          getTransactionsLastNDays(30),
-          classes,
-          bull,
-          'expanded-30'
-        )}
-        {this.renderStatCard(
-          getTransactionsLastNDays(90),
-          classes,
-          bull,
-          'expanded-90'
-        )}
-        {this.renderStatCard(
-          getTransactionsLastNDays(),
-          classes,
-          bull,
-          'expanded-lifetime'
-        )}
+        <div className="col">
+          {this.renderStatCard(
+            getTransactionsLastNDays(30),
+            classes,
+            bull,
+            'expanded-30'
+          )}
+        </div>
+        <div className="col">
+          {this.renderStatCard(
+            getTransactionsLastNDays(90),
+            classes,
+            bull,
+            'expanded-90'
+          )}
+        </div>
+        <div className="col">
+          {this.renderStatCard(
+            getTransactionsLastNDays(),
+            classes,
+            bull,
+            'expanded-lifetime'
+          )}
+        </div>
       </section>
     );
   }
