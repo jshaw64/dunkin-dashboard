@@ -134,37 +134,39 @@ class SimpleCard extends React.Component {
     const bull = <span className={classes.bullet}>•</span>;
 
     return (
-      <section className="flex-grid">
-        <div className="col">
-          {this.renderStatCard(
-            getTransactionsLastNDays(30),
-            classes,
-            bull,
-            'expanded-30',
-            '30 Days',
-            30
-          )}
-        </div>
-        <div className="col">
-          {this.renderStatCard(
-            getTransactionsLastNDays(90),
-            classes,
-            bull,
-            'expanded-90',
-            '90 Days',
-            90
-          )}
-        </div>
-        <div className="col">
-          {this.renderStatCard(
-            getTransactionsLastNDays(),
-            classes,
-            bull,
-            'expanded-lifetime',
-            'Lifetime'
-          )}
-        </div>
-      </section>
+      <MuiThemeProvider theme={theme}>
+        <section className="flex-grid">
+          <div className="col">
+            {this.renderStatCard(
+              getTransactionsLastNDays(30),
+              classes,
+              bull,
+              'expanded-30',
+              '30 Days',
+              30
+            )}
+          </div>
+          <div className="col">
+            {this.renderStatCard(
+              getTransactionsLastNDays(90),
+              classes,
+              bull,
+              'expanded-90',
+              '90 Days',
+              90
+            )}
+          </div>
+          <div className="col">
+            {this.renderStatCard(
+              getTransactionsLastNDays(),
+              classes,
+              bull,
+              'expanded-lifetime',
+              'Lifetime'
+            )}
+          </div>
+        </section>
+      </MuiThemeProvider>
     );
   }
 }
