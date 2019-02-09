@@ -10,6 +10,9 @@ import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 import {
   parseTransactions,
@@ -89,12 +92,16 @@ class SimpleCard extends React.Component {
           </CardActions>
           <Collapse in={this.state[section]} timeout="auto" unmountOnExit>
             <CardContent>
-              {transactions.map(transaction => (
-                <Fragment>
-                  <Typography component="p">{transaction.date}</Typography>
-                  <Typography component="p">{transaction.amount}</Typography>
-                </Fragment>
-              ))}
+              <List>
+                {transactions.map(transaction => (
+                  <ListItem>
+                    <ListItemText
+                      primary={`$${transaction.amount}`}
+                      secondary={`$${transaction.date}`}
+                    />
+                  </ListItem>
+                ))}
+              </List>
             </CardContent>
           </Collapse>
         </CardContent>
