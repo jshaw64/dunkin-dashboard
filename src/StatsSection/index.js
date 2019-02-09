@@ -65,7 +65,7 @@ class SimpleCard extends React.Component {
     }));
   };
 
-  renderStatCard(transactions, classes, bull, section, sectionTitle) {
+  renderStatCard(transactions, classes, bull, section, sectionTitle, range) {
     return (
       <Card className={classes.card}>
         <CardContent>
@@ -79,7 +79,7 @@ class SimpleCard extends React.Component {
           <Typography variant="h5" component="h2">
             {sectionTitle}
           </Typography>
-          <Typography component="p">{getTotalLastNDays(30)}</Typography>
+          <Typography component="p">{getTotalLastNDays(range)}</Typography>
           <CardActions className={classes.actions} disableActionSpacing>
             <IconButton
               className={classnames(classes.expand, {
