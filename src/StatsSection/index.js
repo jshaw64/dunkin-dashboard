@@ -123,7 +123,8 @@ class SimpleCard extends React.Component {
             classes,
             bull,
             'expanded-30',
-            '30 Days'
+            '30 Days',
+            30
           )}
         </div>
         <div className="col">
@@ -132,7 +133,8 @@ class SimpleCard extends React.Component {
             classes,
             bull,
             'expanded-90',
-            '90 Days'
+            '90 Days',
+            90
           )}
         </div>
         <div className="col">
