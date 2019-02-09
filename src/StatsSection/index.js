@@ -79,7 +79,9 @@ class SimpleCard extends React.Component {
           <Typography variant="h5" component="h2">
             {sectionTitle}
           </Typography>
-          <Typography component="p">{getTotalLastNDays(range)}</Typography>
+          <Typography component="p">
+            {getTotalLastNDays(range).toFixed(2)}
+          </Typography>
           <CardActions className={classes.actions} disableActionSpacing>
             <IconButton
               className={classnames(classes.expand, {
