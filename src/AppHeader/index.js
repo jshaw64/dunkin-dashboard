@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 
 class AppHeader extends Component {
   render() {
-    return <Typography>App Header</Typography>;
+    return <Typography variant="h2">App Header</Typography>;
   }
 }
 
