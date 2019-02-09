@@ -25,7 +25,9 @@ import './styles.css';
 
 const styles = theme => ({
   card: {
-    minWidth: 275
+    minWidth: 275,
+    maxHeight: 350,
+    overflow: 'auto'
   },
   bullet: {
     display: 'inline-block',
